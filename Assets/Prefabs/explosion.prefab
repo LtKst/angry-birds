@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e33d947a7d62844b84059ade20c01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1000
-  power: 50
+  radius: 20
+  power: 500
 --- !u!212 &212086634671318372
 SpriteRenderer:
   m_ObjectHideFlags: 1
