@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4165779555314296}
   - component: {fileID: 212086634671318372}
+  - component: {fileID: 114769112675931470}
   - component: {fileID: 82871841926161290}
-  - component: {fileID: 170185506092704838}
   m_Layer: 0
   m_Name: explosion
   m_TagString: Untagged
@@ -122,14 +122,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!170 &170185506092704838
-AudioDistortionFilter:
+--- !u!114 &114769112675931470
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888652750521528}
   m_Enabled: 1
-  m_DistortionLevel: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e33d947a7d62844b84059ade20c01d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1000
+  power: 50
 --- !u!212 &212086634671318372
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -139,6 +144,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -154,6 +160,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
