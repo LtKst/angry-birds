@@ -7,10 +7,18 @@ using UnityEngine;
 /// </summary>
 public class ObjectPoolManager : MonoBehaviour {
 
+    public static ObjectPoolManager instance;
+
     [SerializeField]
     private ObjectPool[] objectPools;
 
     private void Awake() {
+        if (instance == null) {
+            instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+
         for (int i = 0; i < objectPools.Length; i++) {
             objectPools[i].GenerateParent();
             objectPools[i].InitiatePool();

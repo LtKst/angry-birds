@@ -20,7 +20,7 @@ public class ExplosiveBird : Bird {
     private IEnumerator WaitForExplosion() {
         yield return new WaitForSeconds(detonationTime);
 
-        FindObjectOfType<ObjectPoolManager>().SpawnPoolObject("Explosion").transform.position = transform.position;
+        ObjectPoolManager.instance.SpawnPoolObject("Explosion", 5).transform.position = transform.position;
 
         Destroy(gameObject);
     }
