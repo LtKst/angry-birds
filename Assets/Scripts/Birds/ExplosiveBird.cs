@@ -8,8 +8,6 @@ public class ExplosiveBird : Bird {
 
     [SerializeField]
     private float detonationTime = 3;
-    [SerializeField]
-    private GameObject explosion;
 
     public override void OnImpact() {
         base.OnImpact();
