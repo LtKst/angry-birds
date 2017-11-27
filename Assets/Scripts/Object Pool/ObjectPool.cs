@@ -4,6 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Made by Koen Sparreboom
+/// Not totally happy with how this turned out, might fix it later
 /// </summary>
 [Serializable]
 public class ObjectPool {
