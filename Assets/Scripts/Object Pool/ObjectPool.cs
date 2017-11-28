@@ -10,14 +10,14 @@ using UnityEngine;
 public class ObjectPool {
 
     public string poolName;
-    public GameObject poolObject;
-    public int initialPoolSize = 10;
+    [SerializeField]
+    private GameObject poolObject;
+    [SerializeField]
+    private int initialPoolSize = 10;
 
-    [HideInInspector]
-    public Transform parent;
+    private Transform parent;
 
-    [HideInInspector]
-    public List<GameObject> objectList = new List<GameObject>();
+    private List<GameObject> objectList = new List<GameObject>();
 
     public void GenerateParent() {
         parent = new GameObject(poolName + "Parent").transform;
