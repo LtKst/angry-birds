@@ -8,7 +8,7 @@ public class ExplosiveBird : Bird {
 
     [SerializeField]
     private float detonationTime = 3;
-
+    
     public override void OnImpact() {
         base.OnImpact();
 

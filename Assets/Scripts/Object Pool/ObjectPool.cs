@@ -10,21 +10,21 @@ using UnityEngine;
 public class ObjectPool {
 
     public string poolName;
-    public GameObject poolObject;
-    public int initialPoolSize = 10;
+    [SerializeField]
+    private GameObject poolObject;
+    [SerializeField]
+    private int initialPoolSize = 10;
 
-    [HideInInspector]
-    public Transform parent;
+    private Transform parent;
 
-    [HideInInspector]
-    public List<GameObject> objectList = new List<GameObject>();
+    private List<GameObject> objectList = new List<GameObject>();
 
     public void GenerateParent() {
-        parent = new GameObject(poolName + "Parent").transform;
+        parent = new GameObject(poolName + "ObjectPoolParent").transform;
     }
 
     public void InitiatePool() {
-        for (int j = 0; j < initialPoolSize; j++) {
+        for (int i = 0; i < initialPoolSize; i++) {
             GameObject instance = MonoBehaviour.Instantiate(poolObject);
             objectList.Add(instance);
 
@@ -43,6 +43,8 @@ public class ObjectPool {
         }
 
         // No disabled object in pool, instantiate a new one
+        Debug.Log("ObjectPool " + poolName + ": No disabled object in pool, instantiating a new one");
+
         GameObject instance = MonoBehaviour.Instantiate(poolObject);
         objectList.Add(instance);
 

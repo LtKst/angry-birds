@@ -14,8 +14,8 @@ public class Explosion : MonoBehaviour {
         Vector3 explosionPos = transform.position;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionPos, radius);
 
-        for (int i = 0; i < colliders.Length; i++) {
-            Rigidbody2D rb2D = colliders[i].GetComponent<Rigidbody2D>();
+        foreach (Collider2D col in colliders) {
+            Rigidbody2D rb2D = col.GetComponent<Rigidbody2D>();
 
             if (rb2D) {
                 rb2D.AddExplosionForce(power, explosionPos, radius);
