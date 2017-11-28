@@ -20,7 +20,7 @@ public class ObjectPool {
     private List<GameObject> objectList = new List<GameObject>();
 
     public void GenerateParent() {
-        parent = new GameObject(poolName + "Parent").transform;
+        parent = new GameObject(poolName + "ObjectPoolParent").transform;
     }
 
     public void InitiatePool() {
