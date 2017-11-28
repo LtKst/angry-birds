@@ -24,7 +24,7 @@ public class ObjectPool {
     }
 
     public void InitiatePool() {
-        for (int j = 0; j < initialPoolSize; j++) {
+        for (int i = 0; i < initialPoolSize; i++) {
             GameObject instance = MonoBehaviour.Instantiate(poolObject);
             objectList.Add(instance);
 

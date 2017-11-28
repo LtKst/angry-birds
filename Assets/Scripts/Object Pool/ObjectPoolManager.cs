@@ -16,7 +16,7 @@ public class ObjectPoolManager : MonoBehaviour {
         if (instance == null) {
             instance = this;
         } else {
-            Destroy(gameObject);
+            Destroy(this);
         }
 
         for (int i = 0; i < objectPools.Length; i++) {
