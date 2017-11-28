@@ -4,6 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Made by Koen Sparreboom
 /// </summary>
+[RequireComponent(typeof(SpriteRenderer))]
 public class FadeOut : MonoBehaviour {
 
     private SpriteRenderer spriteRenderer;
@@ -11,15 +12,23 @@ public class FadeOut : MonoBehaviour {
     [SerializeField]
     private float fadeOutSpeed = 0.4f;
     [SerializeField]
-    private bool fadeOutOnStart = true;
+    private bool fadeOutOnEnable = true;
+    [SerializeField]
+    private bool resetOnDisable = true;
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable() {
-        if (fadeOutOnStart) {
+        if (fadeOutOnEnable) {
             StartCoroutine(FadeOutTrail());
+        }
+    }
+
+    private void OnDisable() {
+        if (resetOnDisable) {
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.b, spriteRenderer.color.g, 1);
         }
     }
 
@@ -32,6 +41,5 @@ public class FadeOut : MonoBehaviour {
         }
 
         spriteRenderer.gameObject.SetActive(false);
-        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.b, spriteRenderer.color.g, 1);
     }
 }

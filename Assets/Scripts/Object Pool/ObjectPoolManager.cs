@@ -32,7 +32,7 @@ public class ObjectPoolManager : MonoBehaviour {
             }
         }
 
-        Debug.LogWarning("Object pool not found!");
+        Debug.LogWarning("ObjectPoolManager: Object pool not found!");
 
         return null;
     }
@@ -48,7 +48,7 @@ public class ObjectPoolManager : MonoBehaviour {
             }
         }
 
-        Debug.LogWarning("Object pool not found!");
+        Debug.LogWarning("ObjectPoolManager: Object pool not found!");
 
         return null;
     }

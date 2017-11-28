@@ -13,6 +13,6 @@ public class Bird : MonoBehaviour {
     }
 
     public virtual void OnImpact() {
-        print("I hit something");
+        print("Bird: I hit something");
     }
 }

@@ -14,7 +14,7 @@ public class Trail : MonoBehaviour {
         SpawnTrail();
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         if (Vector3.Distance(transform.position, positionSinceLastTrail) > trailSpacing) {
             SpawnTrail();
         }

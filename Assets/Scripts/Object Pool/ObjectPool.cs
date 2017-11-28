@@ -43,6 +43,8 @@ public class ObjectPool {
         }
 
         // No disabled object in pool, instantiate a new one
+        Debug.Log("ObjectPool " + poolName + ": No disabled object in pool, instantiating a new one");
+
         GameObject instance = MonoBehaviour.Instantiate(poolObject);
         objectList.Add(instance);
 
