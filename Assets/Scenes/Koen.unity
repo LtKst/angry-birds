@@ -144,8 +144,10 @@ MonoBehaviour:
     poolObject: {fileID: 1888652750521528, guid: 93340e55034a3054eb93b6b9d0ac18c4,
       type: 2}
     initialPoolSize: 10
-    parent: {fileID: 0}
-    objectList: []
+  - poolName: Trail
+    poolObject: {fileID: 1660776064528520, guid: 3840d51230289464f9c71d87e1e1e990,
+      type: 2}
+    initialPoolSize: 50
 --- !u!4 &3254994
 Transform:
   m_ObjectHideFlags: 0
@@ -733,6 +735,7 @@ GameObject:
   - component: {fileID: 1381420871}
   - component: {fileID: 1381420870}
   - component: {fileID: 1381420873}
+  - component: {fileID: 1381420875}
   - component: {fileID: 1381420869}
   - component: {fileID: 1381420872}
   - component: {fileID: 1381420874}
@@ -809,7 +812,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1381420868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.11, y: 2.41, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -928,6 +931,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1381420875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1381420868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5cf0d507ff7ea4469d16d2535b9b346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailSpacing: 1
+  trailFadeOutSpeed: 0.4
 --- !u!1 &1652033927
 GameObject:
   m_ObjectHideFlags: 0
