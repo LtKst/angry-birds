@@ -35,7 +35,7 @@ public class Trail : MonoBehaviour {
 
         Transform trail = ObjectPoolManager.instance.SpawnPoolObject("Trail").transform;
 
-        trail.localScale = new Vector3(1f / scaleFactor, 1f /scaleFactor, 1);
+        trail.localScale = new Vector3(.5f / scaleFactor, .5f /scaleFactor, 1);
         trail.transform.position = transform.position;
 
         activeTrailList.Add(trail.gameObject);

@@ -5,6 +5,7 @@ public class TrailManager : MonoBehaviour {
 
     public static TrailManager instance;
 
+    [HideInInspector]
     public List<Trail> trailList = new List<Trail>();
 
     private void Awake() {
