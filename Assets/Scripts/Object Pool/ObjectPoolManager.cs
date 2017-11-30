@@ -37,12 +37,12 @@ public class ObjectPoolManager : MonoBehaviour {
         return null;
     }
 
-    public GameObject SpawnPoolObject(string name, float autoDestroyTime) {
+    public GameObject SpawnPoolObject(string name, float autoDisableTime) {
         for (int i = 0; i < objectPools.Length; i++) {
             if (objectPools[i].poolName == name) {
                 GameObject poolObject = objectPools[i].GetPoolObject();
 
-                StartCoroutine(AutoRemove(poolObject, autoDestroyTime));
+                StartCoroutine(AutoRemove(poolObject, autoDisableTime));
 
                 return poolObject;
             }

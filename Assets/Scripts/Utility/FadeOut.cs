@@ -22,7 +22,7 @@ public class FadeOut : MonoBehaviour {
 
     private void OnEnable() {
         if (fadeOutOnEnable) {
-            StartCoroutine(FadeOutTrail());
+            StartCoroutine(StartFadeOut());
         }
     }
 
@@ -32,7 +32,7 @@ public class FadeOut : MonoBehaviour {
         }
     }
 
-    private IEnumerator FadeOutTrail() {
+    private IEnumerator StartFadeOut() {
         while (spriteRenderer.color.a > 0) {
             Color color = new Color(spriteRenderer.color.r, spriteRenderer.color.b, spriteRenderer.color.g, spriteRenderer.color.a - fadeOutSpeed * Time.deltaTime);
             spriteRenderer.color = color;
