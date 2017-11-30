@@ -10,9 +10,8 @@ public class Slingshot : MonoBehaviour {
     public GameObject bird;
     public GameObject aimer;
     public Transform midPoint;
-    public Transform midPoint_out;
     public GameObject[] anchors;
-    private Vector3 v3 = new Vector3(0, 0.3f, 0);
+    private Vector3 v3 = new Vector3(0.1f, 0.3f, 0);
 
     private void Start() {
         aimer.transform.position = new Vector3(1, 1, 0);
