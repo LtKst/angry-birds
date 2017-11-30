@@ -17,7 +17,7 @@ public class Dragpoint : MonoBehaviour {
 
     void Start() {
         SS = GameObject.Find("Slingshot").GetComponent<Slingshot>();
-        defaulPos = new Vector3(0, 0, 0);
+        defaulPos = new Vector3(0, 1.3f, 0);
         transform.position = defaulPos;
     }
 
