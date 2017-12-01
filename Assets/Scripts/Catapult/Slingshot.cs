@@ -11,6 +11,7 @@ public class Slingshot : MonoBehaviour {
     public GameObject aimer;
     public Transform midPoint;
     public GameObject[] anchors;
+    private bool shoot = false;
     private Vector3 v3 = new Vector3(0.1f, 0.3f, 0);
 
     private void Start() {
@@ -20,7 +21,13 @@ public class Slingshot : MonoBehaviour {
 
     private void Update() {
         Aim();
-        UpdateLines();
+
+        if (shoot) {
+            anchors[0].GetComponent<LineRenderer>().SetPosition(1, Vector3.MoveTowards(anchors[0].GetComponent<LineRenderer>().GetPosition(1), midPoint.position, 1 * Time.deltaTime));
+            anchors[1].GetComponent<LineRenderer>().SetPosition(1, Vector3.MoveTowards(anchors[1].GetComponent<LineRenderer>().GetPosition(1), midPoint.position, 1 * Time.deltaTime));
+        } else {
+            UpdateLines();
+        }
     }
 
     private void UpdateLines() {
@@ -43,5 +50,11 @@ public class Slingshot : MonoBehaviour {
     public void Shoot(float power) {
         bird.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         bird.GetComponent<Rigidbody2D>().AddForce(GetShotDirection() * power * 2.5f, ForceMode2D.Impulse);
+        bird.GetComponent<Dragpoint>().canShoot = false;
+        //anchors[0].GetComponent<LineRenderer>().enabled = false;
+        //anchors[1].GetComponent<LineRenderer>().enabled = false;
+        shoot = true;
+        
+
     }
 }

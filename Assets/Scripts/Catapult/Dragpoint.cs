@@ -14,6 +14,8 @@ public class Dragpoint : MonoBehaviour {
     private Vector3 defaulPos;
 
     public float maxDist;
+    public float shootPower;
+    public bool canShoot;
     public Transform midPoint;
 
     Slingshot SS;
@@ -40,7 +42,7 @@ public class Dragpoint : MonoBehaviour {
     }
    
     void OnMouseUp() {
-        Cursor.visible = true;
-        SS.Shoot(15);
+            Cursor.visible = true;
+            SS.Shoot(shootPower);  
     }
 }
