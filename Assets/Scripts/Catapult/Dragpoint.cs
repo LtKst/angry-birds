@@ -13,6 +13,9 @@ public class Dragpoint : MonoBehaviour {
     private Vector3 offset;
     private Vector3 defaulPos;
 
+    public float maxDist;
+    public Transform midPoint;
+
     Slingshot SS;
 
     void Start() {
@@ -30,8 +33,12 @@ public class Dragpoint : MonoBehaviour {
         Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
         currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + offset;
 
-        transform.position = currentPosition;
+        var allowedPos = currentPosition - defaulPos;
+        allowedPos = Vector3.ClampMagnitude(allowedPos, maxDist);
+        transform.position = defaulPos + allowedPos;
+
     }
+   
     void OnMouseUp() {
         Cursor.visible = true;
         SS.Shoot(15);

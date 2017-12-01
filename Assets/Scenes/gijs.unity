@@ -117,6 +117,16 @@ GameObject:
   m_PrefabParentObject: {fileID: 1195198342864142, guid: 47e9f48f3ae72ac49bcf27b536f0a492,
     type: 2}
   m_PrefabInternal: {fileID: 873915390}
+--- !u!50 &23083493 stripped
+Rigidbody2D:
+  m_PrefabParentObject: {fileID: 50300733273921538, guid: 47e9f48f3ae72ac49bcf27b536f0a492,
+    type: 2}
+  m_PrefabInternal: {fileID: 873915390}
+--- !u!4 &26883742 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4838158647161840, guid: 5d68056316007f14a90c36facd42cca0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1346936603}
 --- !u!1 &522521900
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +246,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114048390931007630, guid: 47e9f48f3ae72ac49bcf27b536f0a492,
+        type: 2}
+      propertyPath: midPoint
+      value: 
+      objectReference: {fileID: 26883742}
+    - target: {fileID: 114048390931007630, guid: 47e9f48f3ae72ac49bcf27b536f0a492,
+        type: 2}
+      propertyPath: maxDist
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50300733273921538, guid: 47e9f48f3ae72ac49bcf27b536f0a492,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47e9f48f3ae72ac49bcf27b536f0a492, type: 2}
   m_IsPrefabParent: 0
@@ -286,3 +311,51 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d68056316007f14a90c36facd42cca0, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1904858560 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1868368090849470, guid: 5d68056316007f14a90c36facd42cca0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1346936603}
+--- !u!233 &1904858563
+HingeJoint2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1904858560}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 1
+  m_ConnectedRigidBody: {fileID: 23083493}
+  m_BreakForce: 0.1
+  m_BreakTorque: 0.1
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 8.526513e-14, y: -0.00000011682516}
+  m_ConnectedAnchor: {x: 5.1599994, y: 4.3500004}
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 0
+    m_UpperAngle: 359
+--- !u!50 &1904858564
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1904858560}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
