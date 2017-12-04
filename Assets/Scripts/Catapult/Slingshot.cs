@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 
 public class Slingshot : MonoBehaviour {
+    public float lineSpeed;
     public GameObject bird;
     public GameObject aimer;
     public Transform midPoint;
@@ -23,8 +24,8 @@ public class Slingshot : MonoBehaviour {
         Aim();
 
         if (shoot) {
-            anchors[0].GetComponent<LineRenderer>().SetPosition(1, Vector3.MoveTowards(anchors[0].GetComponent<LineRenderer>().GetPosition(1), midPoint.position, 1 * Time.deltaTime));
-            anchors[1].GetComponent<LineRenderer>().SetPosition(1, Vector3.MoveTowards(anchors[1].GetComponent<LineRenderer>().GetPosition(1), midPoint.position, 1 * Time.deltaTime));
+            anchors[0].GetComponent<LineRenderer>().SetPosition(1, Vector3.MoveTowards(anchors[0].GetComponent<LineRenderer>().GetPosition(1), midPoint.position, lineSpeed * Time.deltaTime));
+            anchors[1].GetComponent<LineRenderer>().SetPosition(1, Vector3.MoveTowards(anchors[1].GetComponent<LineRenderer>().GetPosition(1), midPoint.position, lineSpeed * Time.deltaTime));
         } else {
             UpdateLines();
         }
