@@ -8,14 +8,17 @@ using UnityEngine;
 
 public class Slingshot : MonoBehaviour {
     public float lineSpeed;
+    public float xPower = 0.1f;
+    public float yPower = 0.3f;
     public GameObject bird;
     public GameObject aimer;
     public Transform midPoint;
     public GameObject[] anchors;
     private bool shoot = false;
-    private Vector3 v3 = new Vector3(0.1f, 0.3f, 0);
+    private Vector3 v3;
 
     private void Start() {
+        v3 = new Vector3(xPower, yPower, 0);
         aimer.transform.position = new Vector3(1, 1, 0);
         bird.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
@@ -28,6 +31,10 @@ public class Slingshot : MonoBehaviour {
             anchors[1].GetComponent<LineRenderer>().SetPosition(1, Vector3.MoveTowards(anchors[1].GetComponent<LineRenderer>().GetPosition(1), midPoint.position, lineSpeed * Time.deltaTime));
         } else {
             UpdateLines();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R)) {
+            Reset();
         }
     }
 
@@ -51,11 +58,15 @@ public class Slingshot : MonoBehaviour {
     public void Shoot(float power) {
         bird.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         bird.GetComponent<Rigidbody2D>().AddForce(GetShotDirection() * power * 2.5f, ForceMode2D.Impulse);
-        bird.GetComponent<Dragpoint>().canShoot = false;
-        //anchors[0].GetComponent<LineRenderer>().enabled = false;
-        //anchors[1].GetComponent<LineRenderer>().enabled = false;
         shoot = true;
-        
+    }
 
+    private void Reset() {
+        bird.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        bird.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        bird.GetComponent<Rigidbody2D>().angularVelocity = 0;
+        bird.transform.position = bird.GetComponent<Dragpoint>().defaulPos;
+        bird.GetComponent<Dragpoint>().canShoot = true;
+        shoot = false;
     }
 }
