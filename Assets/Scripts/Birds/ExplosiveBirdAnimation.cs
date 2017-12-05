@@ -8,8 +8,8 @@ public class ExplosiveBirdAnimation : MonoBehaviour {
 
     private Animator animator;
 
-    public enum ExplosiveBirdAnimationState { Shot, Exploding }
-    private ExplosiveBirdAnimationState explosiveBirdAnimationState;
+    public enum ExplosiveBirdAnimationState { Idle, Shot, Exploding }
+    private ExplosiveBirdAnimationState explosiveBirdAnimationState = ExplosiveBirdAnimationState.Idle;
 
     private void Awake() {
         animator = GetComponent<Animator>();
