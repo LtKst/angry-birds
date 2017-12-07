@@ -22,11 +22,19 @@ public class ExplosiveBird : Bird {
         StartCoroutine(WaitForExplosion());
     }
 
+    private void OnMouseDown() {
+        Explode();
+    }
+
     private IEnumerator WaitForExplosion() {
         explosiveBirdAnimation.ChangeState(ExplosiveBirdAnimation.ExplosiveBirdAnimationState.Exploding);
 
         yield return new WaitForSeconds(detonationTime);
 
+        Explode();
+    }
+
+    private void Explode() {
         ObjectPoolManager.instance.SpawnPoolObject("Explosion", 5).transform.position = transform.position;
 
         Destroy(gameObject);

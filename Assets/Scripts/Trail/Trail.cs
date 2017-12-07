@@ -5,14 +5,14 @@ using UnityEngine;
 /// Made by Koen Sparreboom
 /// </summary>
 public class Trail : MonoBehaviour {
-    
+
     [SerializeField]
     private float trailSpacing = 1;
     [SerializeField]
-    private int scaleFactorMax = 3;
+    private float scaleFactorMax = 3;
 
     private Vector3 positionSinceLastTrail;
-    private int scaleFactor;
+    private float scaleFactor;
 
     private List<GameObject> activeTrailList = new List<GameObject>();
 
@@ -35,7 +35,7 @@ public class Trail : MonoBehaviour {
 
         Transform trail = ObjectPoolManager.instance.SpawnPoolObject("Trail").transform;
 
-        trail.localScale = new Vector3(.5f / scaleFactor, .5f /scaleFactor, 1);
+        trail.localScale = new Vector3(.5f / scaleFactor, .5f / scaleFactor, 1);
         trail.transform.position = transform.position;
 
         activeTrailList.Add(trail.gameObject);
@@ -48,7 +48,7 @@ public class Trail : MonoBehaviour {
     }
 
     public void DisableTrail() {
-        foreach(GameObject go in activeTrailList) {
+        foreach (GameObject go in activeTrailList) {
             go.SetActive(false);
         }
     }
