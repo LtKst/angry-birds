@@ -10,6 +10,7 @@ public class Slingshot : MonoBehaviour {
     public float lineSpeed;
     public float xPower = 0.1f;
     public float yPower = 0.3f;
+    public float widthVar = 30;
     public GameObject bird;
     public GameObject aimer;
     public Transform midPoint;
@@ -42,6 +43,7 @@ public class Slingshot : MonoBehaviour {
         for(int i = 0; i < anchors.Length; i++) {
             anchors[i].GetComponent<LineRenderer>().SetPosition(0, anchors[i].transform.position);
             anchors[i].GetComponent<LineRenderer>().SetPosition(1, bird.transform.position);
+            anchors[i].GetComponent<LineRenderer>().SetWidth(widthVar / Vector3.Distance(midPoint.position, bird.transform.position), widthVar /  Vector3.Distance(midPoint.position, bird.transform.position));
         }
     }
 
