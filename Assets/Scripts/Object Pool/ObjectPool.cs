@@ -4,7 +4,6 @@ using UnityEngine;
 
 /// <summary>
 /// Made by Koen Sparreboom
-/// Not totally happy with how this turned out, might fix it later
 /// </summary>
 [Serializable]
 public class ObjectPool {
@@ -19,10 +18,16 @@ public class ObjectPool {
 
     private List<GameObject> objectList = new List<GameObject>();
 
+    /// <summary>
+    /// Instantiate an empty object as parent for the pool objects
+    /// </summary>
     public void GenerateParent() {
         parent = new GameObject(poolName + "ObjectPoolParent").transform;
     }
 
+    /// <summary>
+    /// Fill the pool with objects
+    /// </summary>
     public void InitiatePool() {
         for (int i = 0; i < initialPoolSize; i++) {
             GameObject instance = MonoBehaviour.Instantiate(poolObject);
@@ -32,7 +37,11 @@ public class ObjectPool {
             instance.transform.parent = parent;
         }
     }
-
+    
+    /// <summary>
+    /// Get an object from the pool or instantiate one if all are used
+    /// </summary>
+    /// <returns>GameObject</returns>
     public GameObject GetPoolObject() {
         for (int i = 0; i < objectList.Count; i++) {
             if (!objectList[i].activeInHierarchy) {

@@ -35,7 +35,7 @@ public class ExplosiveBird : Bird {
     }
 
     private void Explode() {
-        ObjectPoolManager.instance.SpawnPoolObject("Explosion", 5).transform.position = transform.position;
+        ObjectPoolManager.instance.SpawnPoolObject("Explosion", transform.position, 5);
 
         Destroy(gameObject);
     }
