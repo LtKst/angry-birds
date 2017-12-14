@@ -21,5 +21,13 @@ public class Explosion : MonoBehaviour {
                 rb2D.AddExplosionForce(power, explosionPos, radius);
             }
         }
+
+        for (int i = 0; i < colliders.Length; i++) {
+            Rigidbody2D rb2D = colliders[i].GetComponent<Rigidbody2D>();
+
+            if (rb2D) {
+                rb2D.AddExplosionForce(power, explosionPos, radius);
+            }
+        }
     }
 }

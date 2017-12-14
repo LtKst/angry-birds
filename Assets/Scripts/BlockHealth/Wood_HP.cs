@@ -4,51 +4,50 @@ using UnityEngine;
 
 public class Wood_HP : MonoBehaviour {
 
-    int state = 0;
-    int timer = 100;
-    int hp = 200;
+    public int state;
 
-    float speed;
+    int timer = 100;
+
+    public Sprite normal;
+    public Sprite littledmg;
+    public Sprite middmg;
+    public Sprite heavydmg;
+    public Sprite broken;
+
+    SpriteRenderer sp;
 
     // Use this for initialization
-    void Start () {
-        
-    }
-
-    private void FixedUpdate()
+    void Start()
     {
-        speed = GetComponent<Rigidbody2D>().velocity.magnitude;
+        sp = GetComponent<SpriteRenderer>();
     }
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(timer == 0 && speed < 5 && collision.gameObject.name != "Bird") //speed and ground hit
-        {
-            hp -= 20;
-        }else if(timer == 0 && speed > 5 && speed < 10 && collision.gameObject.name != "Bird") //speed and ground hit
-        { 
-            hp -= 50;
-        }else if(collision.gameObject.name == "Bird" && timer == 0) //player hit
+        if (collision.gameObject.tag == "Bird" && timer == 0)
         {
             state += 3;
+            UI.score += 500;
+        }
+        if (collision.gameObject.tag == "Ground" && timer == 0)
+        {
+            state += 1;
+            UI.score += 200;
+        }
+        if (collision.gameObject.tag == "Block" && timer == 0)
+        {
+            state += 1;
+            UI.score += 100;
         }
     }
 
     // Update is called once per frame
-    void Update () {
-
-        Debug.Log(hp);
+    void Update()
+    {
 
         if (timer > 0)
         {
             timer -= 1;
-        }
-
-        if(hp <= 0)
-        {
-            state += 1;
-            hp = 100;
         }
 
         if (timer == 0)
@@ -56,24 +55,29 @@ public class Wood_HP : MonoBehaviour {
             if (state == 0)
             {
                 //No dmg
-                Debug.Log("No DMG");
+                sp.sprite = normal;
             }
             if (state == 1)
             {
                 //little dmg
-                Debug.Log("oof little dmg");
+                sp.sprite = littledmg;
             }
             if (state == 2)
             {
-                //heavely dmgd
-                Debug.Log("oof im heavely dmgd");
+                //mid dmg
+                sp.sprite = middmg;
             }
-            if (state >= 3)
+            if (state == 3)
+            {
+                //heavely dmgd
+                sp.sprite = heavydmg;
+            }
+            if (state >= 4)
             {
                 //broken
-                Debug.Log("im ded");
+                sp.sprite = broken;
                 Destroy(gameObject);
             }
         }
-	}
+    }
 }
