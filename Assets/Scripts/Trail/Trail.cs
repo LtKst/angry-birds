@@ -30,6 +30,9 @@ public class Trail : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Place a trail object
+    /// </summary>
     private void SpawnTrail() {
         positionSinceLastTrail = transform.position;
 
@@ -46,6 +49,9 @@ public class Trail : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Disable all active trail objects
+    /// </summary>
     public void DisableTrail() {
         foreach (GameObject go in activeTrailList) {
             go.SetActive(false);
