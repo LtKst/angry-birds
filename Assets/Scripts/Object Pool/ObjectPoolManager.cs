@@ -53,6 +53,38 @@ public class ObjectPoolManager : MonoBehaviour {
         return null;
     }
 
+    public GameObject SpawnPoolObject(string name, Vector3 position) {
+        for (int i = 0; i < objectPools.Length; i++) {
+            if (objectPools[i].poolName == name) {
+                GameObject poolObject = objectPools[i].GetPoolObject();
+                poolObject.transform.position = position;
+
+                return poolObject;
+            }
+        }
+
+        Debug.LogWarning("ObjectPoolManager: Object pool not found!");
+
+        return null;
+    }
+
+    public GameObject SpawnPoolObject(string name, Vector3 position, float autoDisableTime) {
+        for (int i = 0; i < objectPools.Length; i++) {
+            if (objectPools[i].poolName == name) {
+                GameObject poolObject = objectPools[i].GetPoolObject();
+                poolObject.transform.position = position;
+
+                StartCoroutine(AutoRemove(poolObject, autoDisableTime));
+
+                return poolObject;
+            }
+        }
+
+        Debug.LogWarning("ObjectPoolManager: Object pool not found!");
+
+        return null;
+    }
+
     private IEnumerator AutoRemove(GameObject gameObject, float time) {
         yield return new WaitForSeconds(time);
 
