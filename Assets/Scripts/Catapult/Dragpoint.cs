@@ -41,6 +41,12 @@ public class Dragpoint : MonoBehaviour {
             var allowedPos = currentPosition - defaulPos;
             allowedPos = Vector3.ClampMagnitude(allowedPos, maxDist);
             transform.position = defaulPos + allowedPos;
+
+            /*if (Input.mousePosition.y >= -100 && Input.mousePosition.y <= 100) {
+                Debug.Log("x");
+                transform.position = defaulPos;
+            }*/
+            
         }
 
     }
