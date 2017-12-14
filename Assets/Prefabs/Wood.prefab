@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114316780574908446}
   m_Layer: 0
   m_Name: Wood
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381b1ac8e994aa44a960d6ed95c2b6e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  normal: {fileID: 0}
+  littledmg: {fileID: 0}
+  middmg: {fileID: 0}
+  heavydmg: {fileID: 0}
+  broken: {fileID: 0}
 --- !u!212 &212896197634843948
 SpriteRenderer:
   m_ObjectHideFlags: 1

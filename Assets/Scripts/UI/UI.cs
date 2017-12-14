@@ -7,7 +7,7 @@ public class UI : MonoBehaviour {
 
     [SerializeField]
     public Text scoreText;
-    public static int score = 100000;
+    public static int score = 0;
     int highscore = 88730;
     string space = "";
 	
