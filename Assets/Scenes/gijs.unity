@@ -109,14 +109,27 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-    debug:
-      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &23083492 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1195198342864142, guid: 47e9f48f3ae72ac49bcf27b536f0a492,
     type: 2}
   m_PrefabInternal: {fileID: 873915390}
+--- !u!58 &23083494
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 23083492}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.052729845, y: -0.21091843}
+  serializedVersion: 2
+  m_Radius: 0.94135165
 --- !u!4 &26883742 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4838158647161840, guid: 5d68056316007f14a90c36facd42cca0,
@@ -189,6 +202,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
 --- !u!4 &522521904
 Transform:
   m_ObjectHideFlags: 0
@@ -261,7 +275,8 @@ Prefab:
       propertyPath: shootPower
       value: 15
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 61135646484324552, guid: 47e9f48f3ae72ac49bcf27b536f0a492, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 47e9f48f3ae72ac49bcf27b536f0a492, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1346936603
@@ -317,6 +332,11 @@ Prefab:
         type: 2}
       propertyPath: yPower
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114966894923688528, guid: 5d68056316007f14a90c36facd42cca0,
+        type: 2}
+      propertyPath: widthVar
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d68056316007f14a90c36facd42cca0, type: 2}
