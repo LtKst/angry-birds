@@ -12,7 +12,7 @@ public class Bird : MonoBehaviour {
     private float impactDamage = 2;
 
     [HideInInspector]
-    public bool shot = true;
+    public bool shot = false;
 
     private void Awake() {
         trail = GetComponent<Trail>();

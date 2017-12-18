@@ -15,10 +15,13 @@ public class Trail : MonoBehaviour {
 
     private Vector3 positionSinceLastTrail;
     private float scaleFactor;
+    private Vector2 initialScale;
 
     private List<GameObject> activeTrailList = new List<GameObject>();
 
     private void Start() {
+        initialScale = transform.localScale;
+
         positionSinceLastTrail = transform.position;
 
         bird = GetComponent<Bird>();
@@ -45,7 +48,7 @@ public class Trail : MonoBehaviour {
 
         Transform trail = ObjectPoolManager.instance.SpawnPoolObject("Trail", position).transform;
 
-        trail.localScale = new Vector2(1 / scaleFactor, 1 / scaleFactor);
+        trail.localScale = new Vector2(initialScale.x / scaleFactor, initialScale.y / scaleFactor);
 
         activeTrailList.Add(trail.gameObject);
 
