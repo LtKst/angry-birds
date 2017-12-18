@@ -6,6 +6,8 @@ using UnityEngine;
 /// </summary>
 public class Trail : MonoBehaviour {
 
+    private Bird bird;
+
     [SerializeField]
     private float trailSpacing = 1;
     [SerializeField]
@@ -17,6 +19,8 @@ public class Trail : MonoBehaviour {
     private List<GameObject> activeTrailList = new List<GameObject>();
 
     private void Start() {
+        bird = GetComponent<Bird>();
+
         TrailManager.instance.trailList.Add(this);
 
         scaleFactor = scaleFactorMax;
@@ -24,8 +28,15 @@ public class Trail : MonoBehaviour {
         SpawnTrail();
     }
 
-    private void FixedUpdate() {
-        if (Vector3.Distance(transform.position, positionSinceLastTrail) > trailSpacing) {
+    private void Update() {
+        float distance = Vector3.Distance(transform.position, positionSinceLastTrail);
+
+        if (distance > trailSpacing) {
+            distance = trailSpacing;
+        }
+
+        if (distance >= trailSpacing && bird.shot) {
+            print(distance);
             SpawnTrail();
         }
     }
@@ -34,18 +45,18 @@ public class Trail : MonoBehaviour {
     /// Place a trail object
     /// </summary>
     private void SpawnTrail() {
-        positionSinceLastTrail = transform.position;
-
         Transform trail = ObjectPoolManager.instance.SpawnPoolObject("Trail", transform.position).transform;
 
-        trail.localScale = new Vector3(.5f / scaleFactor, .5f / scaleFactor, 1);
+        positionSinceLastTrail = trail.position;
+
+        trail.localScale = new Vector2(1 / scaleFactor, 1 / scaleFactor);
 
         activeTrailList.Add(trail.gameObject);
 
-        scaleFactor--;
+        scaleFactor -= 0.5f;
 
-        if (scaleFactor == 0) {
-            scaleFactor = scaleFactorMax;
+        if (scaleFactor == 0.5f) {
+            scaleFactor = 2;
         }
     }
 
