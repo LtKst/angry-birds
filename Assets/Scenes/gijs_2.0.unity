@@ -400,8 +400,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPosition: {x: 0, y: 0, z: 0}
   defaulPos: {x: 0, y: 0, z: 0}
-  maxDist: 0
-  shootPower: 0
+  maxDist: 50
+  shootPower: 20
   canShoot: 1
   midPoint: {fileID: 26883742}
 --- !u!1001 &873915390
