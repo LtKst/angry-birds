@@ -10,7 +10,7 @@ public class Slingshot : MonoBehaviour {
     public float lineSpeed;
     public float xPower = 0.1f;
     public float yPower = 0.3f;
-    public float widthVar = 30;
+    public float widthVar = 15;
     public GameObject bird;
     public GameObject aimer;
     public Transform midPoint;
@@ -43,13 +43,17 @@ public class Slingshot : MonoBehaviour {
         for(int i = 0; i < anchors.Length; i++) {
             anchors[i].GetComponent<LineRenderer>().SetPosition(0, anchors[i].transform.position);
             anchors[i].GetComponent<LineRenderer>().SetPosition(1, bird.transform.position);
-            anchors[i].GetComponent<LineRenderer>().SetWidth(widthVar / Vector3.Distance(midPoint.position, bird.transform.position), widthVar /  Vector3.Distance(midPoint.position, bird.transform.position));
+            anchors[i].GetComponent<LineRenderer>().SetWidth(widthVar - Vector3.Distance(midPoint.position, bird.transform.position) / 3, widthVar - Vector3.Distance(midPoint.position, bird.transform.position) / 3);
+
+            print(widthVar - Vector3.Distance(midPoint.position, bird.transform.position) / 2);
         }
     }
 
     private void Aim() {
-        Vector3 pullDirection = midPoint.position - (bird.transform.position - midPoint.position).normalized;
-        aimer.transform.position = pullDirection;
+        if (bird != null) {
+            Vector3 pullDirection = midPoint.position - (bird.transform.position - midPoint.position).normalized;
+            aimer.transform.position = pullDirection;
+        }
     }
 
     Vector3 GetShotDirection() {
@@ -60,6 +64,7 @@ public class Slingshot : MonoBehaviour {
     public void Shoot(float power) {
         bird.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         bird.GetComponent<Rigidbody2D>().AddForce(GetShotDirection() * power * 2.5f, ForceMode2D.Impulse);
+        bird.GetComponent<Bird>().shot = true;
         shoot = true;
     }
 
@@ -67,7 +72,7 @@ public class Slingshot : MonoBehaviour {
         bird.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         bird.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         bird.GetComponent<Rigidbody2D>().angularVelocity = 0;
-        bird.transform.position = bird.GetComponent<Dragpoint>().defaulPos;
+        bird.transform.position = bird.GetComponent<Dragpoint>().defaultPos;
         bird.GetComponent<Dragpoint>().canShoot = true;
         shoot = false;
     }
