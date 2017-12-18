@@ -22,10 +22,6 @@ public class ExplosiveBird : Bird {
         StartCoroutine(WaitForExplosion());
     }
 
-    private void OnMouseDown() {
-        Explode();
-    }
-
     private IEnumerator WaitForExplosion() {
         explosiveBirdAnimation.ChangeState(ExplosiveBirdAnimation.ExplosiveBirdAnimationState.Exploding);
 
