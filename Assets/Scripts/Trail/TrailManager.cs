@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Made by Koen Sparreboom
+/// </summary>
 public class TrailManager : MonoBehaviour {
 
     public static TrailManager instance;
