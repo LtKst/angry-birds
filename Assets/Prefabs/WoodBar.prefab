@@ -105,6 +105,7 @@ MonoBehaviour:
   middmg: {fileID: 21300000, guid: 71e3f282299ab4e25b3417b2ffe48c63, type: 3}
   heavydmg: {fileID: 21300000, guid: 0e9a3202e6384431884a834f9f64b93b, type: 3}
   broken: {fileID: 0}
+  ps: {fileID: 198643870725543762, guid: 72b9abcb81f989c4da725f7918d5bbb5, type: 2}
 --- !u!212 &212878018203902548
 SpriteRenderer:
   m_ObjectHideFlags: 1
