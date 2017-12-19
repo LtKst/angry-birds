@@ -16,14 +16,16 @@ public class ExplosiveBird : Bird {
         explosiveBirdAnimation = GetComponent<ExplosiveBirdAnimation>();
     }
 
+    private void Update() {
+        if (Input.GetMouseButtonDown(0) && shot) {
+            Explode();
+        }
+    }
+
     public override void OnImpact() {
         base.OnImpact();
 
         StartCoroutine(WaitForExplosion());
-    }
-
-    private void OnMouseDown() {
-        Explode();
     }
 
     private IEnumerator WaitForExplosion() {
