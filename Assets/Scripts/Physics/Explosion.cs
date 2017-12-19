@@ -16,17 +16,24 @@ public class Explosion : MonoBehaviour {
 
         foreach (Collider2D col in colliders) {
             Rigidbody2D rb2D = col.GetComponent<Rigidbody2D>();
+            Wood_HP woodHP = col.GetComponent<Wood_HP>();
+            Stone_HP stoneHP = col.GetComponent<Stone_HP>();
+            enemyHealth enemyHP = col.GetComponent<enemyHealth>();
 
             if (rb2D) {
                 rb2D.AddExplosionForce(power, explosionPos, radius);
             }
-        }
 
-        for (int i = 0; i < colliders.Length; i++) {
-            Rigidbody2D rb2D = colliders[i].GetComponent<Rigidbody2D>();
+            if (woodHP) {
+                woodHP.state += 3;
+            }
 
-            if (rb2D) {
-                rb2D.AddExplosionForce(power, explosionPos, radius);
+            if (stoneHP) {
+                stoneHP.state += 3;
+            }
+
+            if (enemyHP) {
+                enemyHP.state += 2;
             }
         }
     }

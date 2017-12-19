@@ -18,6 +18,9 @@ public class Slingshot : MonoBehaviour {
     private bool shoot = false;
     private Vector3 v3;
 
+    [SerializeField]
+    private CameraPan cameraPan;
+
     private void Start() {
         v3 = new Vector3(xPower, yPower, 0);
         aimer.transform.position = new Vector3(1, 1, 0);
@@ -26,7 +29,7 @@ public class Slingshot : MonoBehaviour {
 
     private void Update() {
         Aim();
-        print(Vector3.Distance(midPoint.position, bird.transform.position));
+
         if (shoot) {
             anchors[0].GetComponent<LineRenderer>().SetPosition(1, Vector3.MoveTowards(anchors[0].GetComponent<LineRenderer>().GetPosition(1), midPoint.position, lineSpeed * Time.deltaTime));
             anchors[1].GetComponent<LineRenderer>().SetPosition(1, Vector3.MoveTowards(anchors[1].GetComponent<LineRenderer>().GetPosition(1), midPoint.position, lineSpeed * Time.deltaTime));
@@ -44,8 +47,6 @@ public class Slingshot : MonoBehaviour {
             anchors[i].GetComponent<LineRenderer>().SetPosition(0, anchors[i].transform.position);
             anchors[i].GetComponent<LineRenderer>().SetPosition(1, bird.transform.position);
             anchors[i].GetComponent<LineRenderer>().SetWidth(widthVar - Vector3.Distance(midPoint.position, bird.transform.position) / 3, widthVar - Vector3.Distance(midPoint.position, bird.transform.position) / 3);
-
-            print(widthVar - Vector3.Distance(midPoint.position, bird.transform.position) / 2);
         }
     }
 
@@ -62,6 +63,7 @@ public class Slingshot : MonoBehaviour {
     }   
 
     public void Shoot(float power) {
+        cameraPan.inAction = true;
         bird.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         bird.GetComponent<Rigidbody2D>().AddForce(GetShotDirection() * power * 2.5f, ForceMode2D.Impulse);
         bird.GetComponent<Bird>().shot = true;
