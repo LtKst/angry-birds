@@ -13,6 +13,7 @@ public class Wood_HP : MonoBehaviour {
     public Sprite middmg;
     public Sprite heavydmg;
     public Sprite broken;
+    public GameObject ps;
 
     SpriteRenderer sp;
 
@@ -77,6 +78,7 @@ public class Wood_HP : MonoBehaviour {
                 //broken
                 sp.sprite = broken;
                 Destroy(gameObject);
+                
             }
         }
     }
