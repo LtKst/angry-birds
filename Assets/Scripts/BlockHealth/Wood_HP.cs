@@ -12,8 +12,6 @@ public class Wood_HP : MonoBehaviour {
     public Sprite littledmg;
     public Sprite middmg;
     public Sprite heavydmg;
-    public Sprite broken;
-    public GameObject ps;
 
     SpriteRenderer sp;
 
@@ -76,7 +74,7 @@ public class Wood_HP : MonoBehaviour {
             if (state >= 4)
             {
                 //broken
-                sp.sprite = broken;
+                ObjectPoolManager.instance.SpawnPoolObject("WoodBreakParticles", transform.position);
                 Destroy(gameObject);
                 
             }

@@ -12,7 +12,6 @@ public class Stone_HP : MonoBehaviour {
     public Sprite littledmg;
     public Sprite middmg;
     public Sprite heavydmg;
-    public Sprite broken;
 
     SpriteRenderer sp;
 
@@ -62,8 +61,7 @@ public class Stone_HP : MonoBehaviour {
             }
             if (state >= 4)
             {
-                //broken
-                sp.sprite = broken;
+                ObjectPoolManager.instance.SpawnPoolObject("StoneBreakParticles", transform.position);
                 Destroy(gameObject);
             }
         }

@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e33d947a7d62844b84059ade20c01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
-  power: 10
+  radius: 7
+  power: 1000
 --- !u!198 &198556158542168294
 ParticleSystem:
   m_ObjectHideFlags: 1

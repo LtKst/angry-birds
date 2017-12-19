@@ -15,7 +15,7 @@ public class CameraPan : MonoBehaviour {
     [SerializeField]
     private float inActionSize;
 
-    private bool inAction;
+    public bool inAction;
 
     private void Awake() {
         _camera = GetComponent<Camera>();
@@ -25,10 +25,6 @@ public class CameraPan : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetKeyDown("e")) {
-            inAction = !inAction;
-        }
-
         float speed = panSpeed * Time.deltaTime;
 
         _camera.transform.position = inAction ? Vector3.Lerp(_camera.transform.position, inActionPosition, speed) : Vector3.Lerp(_camera.transform.position, initialPosition, speed);

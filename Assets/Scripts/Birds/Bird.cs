@@ -14,12 +14,16 @@ public class Bird : MonoBehaviour {
     [HideInInspector]
     public bool shot = false;
 
+    [SerializeField]
+    private ParticleSystem collisionPS;
+
     private void Awake() {
         trail = GetComponent<Trail>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (shot) {
+            collisionPS.Emit(10);
             OnImpact();
         }
     }
