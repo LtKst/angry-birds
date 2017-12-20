@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e33d947a7d62844b84059ade20c01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
-  power: 10
+  radius: 7
+  power: 1000
 --- !u!198 &198556158542168294
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -327,7 +327,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 13.43
+      scalar: 26.86
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3644,7 +3644,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2

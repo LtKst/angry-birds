@@ -12,7 +12,10 @@ public class Bird : MonoBehaviour {
     private float impactDamage = 2;
 
     [HideInInspector]
-    public bool shot = true;
+    public bool shot = false;
+
+    [SerializeField]
+    private ParticleSystem collisionPS;
 
     private void Awake() {
         trail = GetComponent<Trail>();
@@ -20,6 +23,7 @@ public class Bird : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (shot) {
+            collisionPS.Emit(10);
             OnImpact();
         }
     }

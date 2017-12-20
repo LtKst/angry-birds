@@ -6,14 +6,17 @@ public class Stone_HP : MonoBehaviour {
 
     public int state;
 
-    int timer = 100;
+    int timer = 50;
 
     public Sprite normal;
     public Sprite littledmg;
     public Sprite middmg;
     public Sprite heavydmg;
+<<<<<<< HEAD
     public Sprite broken;
     public GameObject bird;
+=======
+>>>>>>> 5cbd3202a9b32956185f8155502b7978eae56142
 
     SpriteRenderer sp;
 
@@ -62,9 +65,13 @@ public class Stone_HP : MonoBehaviour {
             }
             if (state >= 4)
             {
+<<<<<<< HEAD
                 //broken
                 UI.score += 500;
                 sp.sprite = broken;
+=======
+                ObjectPoolManager.instance.SpawnPoolObject("StoneBreakParticles", transform.position);
+>>>>>>> 5cbd3202a9b32956185f8155502b7978eae56142
                 Destroy(gameObject);
             }
         }
