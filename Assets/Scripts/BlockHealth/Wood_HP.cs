@@ -6,7 +6,7 @@ public class Wood_HP : MonoBehaviour {
 
     public int state;
 
-    int timer = 100;
+    int timer = 50;
 
     public Sprite normal;
     public Sprite littledmg;
