@@ -36,10 +36,6 @@ public class Slingshot : MonoBehaviour {
         } else {
             UpdateLines();
         }
-
-        if (Input.GetKeyDown(KeyCode.R)) {
-            Reset();
-        }
     }
 
     private void UpdateLines() {

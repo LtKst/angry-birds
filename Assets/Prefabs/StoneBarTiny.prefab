@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61991049395762232}
   - component: {fileID: 114545497972536146}
   m_Layer: 0
-  m_Name: StoneBarSmallSmall
+  m_Name: StoneBarTiny
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,6 @@ MonoBehaviour:
   littledmg: {fileID: 21300000, guid: f9989c9b989324b6582942b3d886fe99, type: 3}
   middmg: {fileID: 21300000, guid: 77fa709a7aeb04f35a730d4bc71f2433, type: 3}
   heavydmg: {fileID: 21300000, guid: 174a753d3cdc541f8a6c5824a8c444d1, type: 3}
-  broken: {fileID: 0}
 --- !u!212 &212626885896899240
 SpriteRenderer:
   m_ObjectHideFlags: 1

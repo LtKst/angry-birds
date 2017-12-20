@@ -13,16 +13,20 @@ public class Explosion : MonoBehaviour {
     private void Start() {
         Vector3 explosionPos = transform.position;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionPos, radius);
+        Collider2D[] damageColliders = Physics2D.OverlapCircleAll(explosionPos, radius / 2);
 
         foreach (Collider2D col in colliders) {
             Rigidbody2D rb2D = col.GetComponent<Rigidbody2D>();
-            Wood_HP woodHP = col.GetComponent<Wood_HP>();
-            Stone_HP stoneHP = col.GetComponent<Stone_HP>();
-            enemyHealth enemyHP = col.GetComponent<enemyHealth>();
 
             if (rb2D) {
                 rb2D.AddExplosionForce(power, explosionPos, radius);
             }
+        }
+
+        foreach (Collider2D col in damageColliders) {
+            Wood_HP woodHP = col.GetComponent<Wood_HP>();
+            Stone_HP stoneHP = col.GetComponent<Stone_HP>();
+            enemyHealth enemyHP = col.GetComponent<enemyHealth>();
 
             if (woodHP) {
                 woodHP.state += 3;

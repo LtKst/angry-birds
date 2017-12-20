@@ -10,7 +10,6 @@ public class enemyHealth : MonoBehaviour {
 
     public Sprite normal;
     public Sprite dmg;
-    public Sprite broken;
 
     SpriteRenderer sp;
 
@@ -63,7 +62,7 @@ public class enemyHealth : MonoBehaviour {
             if (state >= 2)
             {
                 //broken
-                sp.sprite = broken;
+                ObjectPoolManager.instance.SpawnPoolObject("Poof", transform.position);
                 Destroy(gameObject);
             }
         }
