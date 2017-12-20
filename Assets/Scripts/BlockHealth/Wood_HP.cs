@@ -14,6 +14,8 @@ public class Wood_HP : MonoBehaviour {
     public Sprite heavydmg;
     public Sprite broken;
 
+    public GameObject bird;
+
     SpriteRenderer sp;
 
     // Use this for initialization
@@ -25,9 +27,8 @@ public class Wood_HP : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bird" && timer == 0)
-        {
+        {  
             state += 3;
-            UI.score += 500;
         }
         if (collision.gameObject.tag == "Ground" && timer == 0)
         {
@@ -75,6 +76,7 @@ public class Wood_HP : MonoBehaviour {
             if (state >= 4)
             {
                 //broken
+                UI.score += 500;
                 sp.sprite = broken;
                 Destroy(gameObject);
             }

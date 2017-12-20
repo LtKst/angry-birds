@@ -19,6 +19,7 @@ public class Slingshot : MonoBehaviour {
     private Vector3 v3;
 
     private void Start() {
+        ScoreController.Initialize();
         v3 = new Vector3(xPower, yPower, 0);
         aimer.transform.position = new Vector3(1, 1, 0);
         bird.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
@@ -58,6 +59,9 @@ public class Slingshot : MonoBehaviour {
     }   
 
     public void Shoot(float power) {
+        int amount = 300 + (int)Mathf.Round(bird.GetComponent<Rigidbody2D>().velocity.magnitude) * 10;
+        ScoreController.screenPos = gameObject.transform.position;
+        ScoreController.CreateText(amount.ToString(), transform);
         bird.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         bird.GetComponent<Rigidbody2D>().AddForce(GetShotDirection() * power * 2.5f, ForceMode2D.Impulse);
         shoot = true;

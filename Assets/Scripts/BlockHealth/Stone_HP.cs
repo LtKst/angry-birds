@@ -13,6 +13,7 @@ public class Stone_HP : MonoBehaviour {
     public Sprite middmg;
     public Sprite heavydmg;
     public Sprite broken;
+    public GameObject bird;
 
     SpriteRenderer sp;
 
@@ -26,7 +27,6 @@ public class Stone_HP : MonoBehaviour {
         if(collision.gameObject.tag == "Bird" && timer == 0)
         {
             state += 2;
-            UI.score += 50000;
         }
     }
 
@@ -63,6 +63,7 @@ public class Stone_HP : MonoBehaviour {
             if (state >= 4)
             {
                 //broken
+                UI.score += 500;
                 sp.sprite = broken;
                 Destroy(gameObject);
             }
