@@ -15,41 +15,40 @@ public class Trail : MonoBehaviour {
 
     private Vector3 positionSinceLastTrail;
     private float scaleFactor;
+    private Vector2 initialScale;
 
     private List<GameObject> activeTrailList = new List<GameObject>();
 
     private void Start() {
+        initialScale = transform.localScale;
+
+        positionSinceLastTrail = transform.position;
+
         bird = GetComponent<Bird>();
 
         TrailManager.instance.trailList.Add(this);
 
         scaleFactor = scaleFactorMax;
-
-        SpawnTrail();
     }
 
     private void Update() {
-        float distance = Vector3.Distance(transform.position, positionSinceLastTrail);
-
-        if (distance > trailSpacing) {
-            distance = trailSpacing;
-        }
+        Vector3 position = transform.position;
+        float distance = Vector3.Distance(position, positionSinceLastTrail);
 
         if (distance >= trailSpacing && bird.shot) {
-            print(distance);
-            SpawnTrail();
+            SpawnTrail(Vector3.MoveTowards(positionSinceLastTrail, position, trailSpacing));
         }
     }
 
     /// <summary>
     /// Place a trail object
     /// </summary>
-    private void SpawnTrail() {
-        Transform trail = ObjectPoolManager.instance.SpawnPoolObject("Trail", transform.position).transform;
+    private void SpawnTrail(Vector3 position) {
+        positionSinceLastTrail = position;
 
-        positionSinceLastTrail = trail.position;
+        Transform trail = ObjectPoolManager.instance.SpawnPoolObject("Trail", position).transform;
 
-        trail.localScale = new Vector2(1 / scaleFactor, 1 / scaleFactor);
+        trail.localScale = new Vector2(initialScale.x / scaleFactor, initialScale.y / scaleFactor);
 
         activeTrailList.Add(trail.gameObject);
 

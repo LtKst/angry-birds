@@ -41,8 +41,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1006915991885580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.18, y: 4.37, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.18, y: 5, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,7 +54,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1006915991885580}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -201,8 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5cf0d507ff7ea4469d16d2535b9b346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trailSpacing: 0.15
-  scaleFactorMax: 3
+  trailSpacing: 0.35
+  scaleFactorMax: 2
 --- !u!114 &114395717680855402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactDamage: 2
+  shot: 1
   detonationTime: 1
 --- !u!212 &212657214345665652
 SpriteRenderer:
