@@ -1,23 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScorePopup : MonoBehaviour {
-    Rect text;
-    private GUIStyle style;
-    public Font abFont;
+    public Animator anim;
+    private Text scoreText;
 
-    private void Start() {
-        text = new Rect(0,0,1000,1000);
-        style = new GUIStyle();
-
-
+    private void OnEnable() {
+        AnimatorClipInfo[] clipInfo = anim.GetCurrentAnimatorClipInfo(0);
+        Destroy(gameObject, clipInfo[0].clip.length);
+        scoreText = anim.GetComponent<Text>();
     }
 
-    private void OnGUI() {
-        style.font = abFont;
-        GUILayout.Label("", style);
-        GUI.Label(text, "500");
-                 
+    public void SetScore(string score) {
+        scoreText.text = score;
     }
+    
 }

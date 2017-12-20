@@ -13,20 +13,26 @@ public class Wood_HP : MonoBehaviour {
     public Sprite middmg;
     public Sprite heavydmg;
 
+    private GameObject bird;
+
     SpriteRenderer sp;
 
     // Use this for initialization
     void Start()
     {
         sp = GetComponent<SpriteRenderer>();
+        bird = GameObject.FindGameObjectWithTag("Bird");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bird" && timer == 0)
-        {
+        {  
             state += 3;
-            UI.score += 500;
+            int amount = 300 + (int)Mathf.Round(bird.GetComponent<Rigidbody2D>().velocity.magnitude) * 100;
+            ScoreController.screenPos = gameObject.transform.position;
+            ScoreController.CreateText(amount.ToString(), transform);
+            UI.score += amount;
         }
         if (collision.gameObject.tag == "Ground" && timer == 0)
         {
@@ -74,6 +80,9 @@ public class Wood_HP : MonoBehaviour {
             if (state >= 4)
             {
                 //broken
+                UI.score += 500;
+                ScoreController.screenPos = gameObject.transform.position;
+                ScoreController.CreateText("500", transform);
                 ObjectPoolManager.instance.SpawnPoolObject("WoodBreakParticles", transform.position);
                 Destroy(gameObject);
                 
