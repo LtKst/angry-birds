@@ -75,12 +75,8 @@ public class Wood_HP : MonoBehaviour {
             if (state >= 4)
             {
                 //broken
-<<<<<<< HEAD
                 UI.score += 500;
-                sp.sprite = broken;
-=======
                 ObjectPoolManager.instance.SpawnPoolObject("WoodBreakParticles", transform.position);
->>>>>>> 5cbd3202a9b32956185f8155502b7978eae56142
                 Destroy(gameObject);
                 
             }
