@@ -7,6 +7,8 @@ public class Pause : MonoBehaviour {
 
     [SerializeField]
     private PanelUI pausePanel;
+    [SerializeField]
+    private ImageFade imageFade;
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -35,11 +37,13 @@ public class Pause : MonoBehaviour {
 
     public void PauseGame() {
         pausePanel.SetVisible(true);
+        imageFade.visible = true;
         Time.timeScale = 0;
     }
 
     public void UnPauseGame() {
         pausePanel.SetVisible(false);
+        imageFade.visible = false;
         Time.timeScale = 1;
     }
 }
