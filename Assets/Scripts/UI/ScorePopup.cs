@@ -20,5 +20,4 @@ public class ScorePopup : MonoBehaviour {
     public void SetScore(string score) {
         scoreText.text = score;
     }
-    
 }

@@ -17,7 +17,7 @@ public class ExplosiveBird : Bird {
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0) && shot) {
+        if (Input.GetMouseButtonDown(0) && shot && !Pause.Paused) {
             ObjectPoolManager.instance.SpawnPoolObject("SinglePoof", transform.position);
             Explode();
         }

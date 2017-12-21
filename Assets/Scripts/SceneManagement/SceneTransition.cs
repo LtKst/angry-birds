@@ -50,6 +50,10 @@ public class SceneTransition : MonoBehaviour {
         StartCoroutine(FadeOut());
     }
 
+    /// <summary>
+    /// Start fading into a scene
+    /// </summary>
+    /// <param name="sceneIndex"></param>
     public void StartTransition(int sceneIndex) {
         StartCoroutine(TransitionToScene(sceneIndex));
     }

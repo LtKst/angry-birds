@@ -8,9 +8,6 @@ public class Bird : MonoBehaviour {
 
     private Trail trail;
 
-    [SerializeField]
-    private float impactDamage = 2;
-
     [HideInInspector]
     public bool shot = false;
 
