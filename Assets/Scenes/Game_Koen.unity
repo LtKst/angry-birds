@@ -1899,8 +1899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panSpeed: 2
-  inActionPosition: {x: 39, y: 1.95, z: -10}
-  inActionSize: 11.5
+  inActionSize: 12
   xOffset: 10.16
   minX: -14
   maxX: 41.9
