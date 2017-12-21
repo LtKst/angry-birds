@@ -22,6 +22,7 @@ public class Slingshot : MonoBehaviour {
     private CameraPan cameraPan;
 
     private void Start() {
+        ScoreController.Initialize();
         v3 = new Vector3(xPower, yPower, 0);
         aimer.transform.position = new Vector3(1, 1, 0);
         bird.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
@@ -62,6 +63,7 @@ public class Slingshot : MonoBehaviour {
         cameraPan.inAction = true;
         bird.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         bird.GetComponent<Rigidbody2D>().AddForce(GetShotDirection() * power * 2.5f, ForceMode2D.Impulse);
+        bird.GetComponent<ExplosiveBirdAnimation>().ChangeState(ExplosiveBirdAnimation.ExplosiveBirdAnimationState.Shot);
         bird.GetComponent<Bird>().shot = true;
         shoot = true;
     }
