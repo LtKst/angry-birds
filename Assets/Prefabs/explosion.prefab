@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 7
-  power: 1000
+  power: 2000
 --- !u!198 &198556158542168294
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -174,7 +174,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 555198627
+  randomSeed: 225599356
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3385,7 +3385,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1015798701808092}
   serializedVersion: 5
   lengthInSec: 0.75
-  simulationSpeed: 1
+  simulationSpeed: 2
   looping: 0
   prewarm: 0
   playOnAwake: 1
@@ -3436,7 +3436,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 502615317
+  randomSeed: 387742939
   InitialModule:
     serializedVersion: 3
     enabled: 1

@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Made by Koen Sparreboom
+/// </summary>
 public class CameraPan : MonoBehaviour {
 
     private Camera _camera;
@@ -14,6 +17,11 @@ public class CameraPan : MonoBehaviour {
     private Vector3 inActionPosition;
     [SerializeField]
     private float inActionSize;
+
+    [SerializeField]
+    private float minX;
+    [SerializeField]
+    private float maxX;
 
     public bool inAction;
 
