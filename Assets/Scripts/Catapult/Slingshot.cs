@@ -60,7 +60,7 @@ public class Slingshot : MonoBehaviour {
     }   
 
     public void Shoot(float power) {
-        cameraPan.inAction = true;
+        cameraPan.followingBird = true;
         bird.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         bird.GetComponent<Rigidbody2D>().AddForce(GetShotDirection() * power * 2.5f, ForceMode2D.Impulse);
         bird.GetComponent<ExplosiveBirdAnimation>().ChangeState(ExplosiveBirdAnimation.ExplosiveBirdAnimationState.Shot);
