@@ -14,6 +14,8 @@ public class Dragpoint : MonoBehaviour {
     [HideInInspector]
     public Vector3 defaultPos;
 
+    public AudioSource dragSound;
+    public AudioSource shootSound;
     public float maxDist;
     public float shootPower;
     public bool canShoot ;
@@ -29,6 +31,7 @@ public class Dragpoint : MonoBehaviour {
 
     void OnMouseDown() {
         if (canShoot) {
+            dragSound.Play(100);
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
                                                                                 Input.mousePosition.y, screenPoint.z));
         }
@@ -53,6 +56,7 @@ public class Dragpoint : MonoBehaviour {
 
     void OnMouseUp() {
         if (canShoot) {
+            shootSound.Play(100);
             SS.Shoot(shootPower);
             canShoot = false;
         }
