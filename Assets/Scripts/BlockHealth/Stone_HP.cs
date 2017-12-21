@@ -34,11 +34,11 @@ public class Stone_HP : MonoBehaviour {
         if(collision.gameObject.tag == "Bird" && timer == 0)
         {
             state += 2;
-            rockDamage.Play(100);
+            rockDamage.Play();
             int amount = 300 + (int)Mathf.Round((bird.GetComponent<Rigidbody2D>().velocity.magnitude * 200));
             ScoreController.screenPos = new Vector3(gameObject.transform.position.x + Random.Range(-2, 2), gameObject.transform.position.y + Random.Range(5,6));
             ScoreController.CreateText(amount.ToString(), transform);
-            UI.score += amount;
+            ScoreUI.score += amount;
         }
     }
 
@@ -75,8 +75,8 @@ public class Stone_HP : MonoBehaviour {
             if (state >= 4)
             {
                 //broken
-                UI.score += 500;
-                rockDestroy.Play(100);
+                ScoreUI.score += 500;
+                rockDestroy.Play();
                 ScoreController.screenPos = new Vector3(gameObject.transform.position.x + Random.Range(-2, 2), gameObject.transform.position.y + Random.Range(5, 6));
                 ScoreController.CreateText("500", transform);
                 ObjectPoolManager.instance.SpawnPoolObject("StoneBreakParticles", transform.position);

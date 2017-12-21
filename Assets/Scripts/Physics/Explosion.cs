@@ -26,7 +26,7 @@ public class Explosion : MonoBehaviour {
         foreach (Collider2D col in damageColliders) {
             Wood_HP woodHP = col.GetComponent<Wood_HP>();
             Stone_HP stoneHP = col.GetComponent<Stone_HP>();
-            enemyHealth enemyHP = col.GetComponent<enemyHealth>();
+            EnemyHealth enemyHP = col.GetComponent<EnemyHealth>();
 
             if (woodHP) {
                 woodHP.state += 3;

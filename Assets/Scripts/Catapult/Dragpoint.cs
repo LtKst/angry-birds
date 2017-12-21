@@ -18,7 +18,7 @@ public class Dragpoint : MonoBehaviour {
     public AudioSource shootSound;
     public float maxDist;
     public float shootPower;
-    public bool canShoot ;
+    public bool canShoot;
     public Transform midPoint;
 
     Slingshot SS;
@@ -31,7 +31,7 @@ public class Dragpoint : MonoBehaviour {
 
     void OnMouseDown() {
         if (canShoot && !Pause.Paused) {
-            dragSound.Play(100);
+            dragSound.Play();
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
                                                                                 Input.mousePosition.y, screenPoint.z));
         }
@@ -56,7 +56,7 @@ public class Dragpoint : MonoBehaviour {
 
     void OnMouseUp() {
         if (canShoot && !Pause.Paused) {
-            shootSound.Play(100);
+            shootSound.Play();
             SS.Shoot(shootPower);
             canShoot = false;
         }
