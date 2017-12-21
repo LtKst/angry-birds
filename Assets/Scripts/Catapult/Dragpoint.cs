@@ -11,7 +11,8 @@ public class Dragpoint : MonoBehaviour {
     public Vector3 currentPosition;
     private Vector3 screenPoint;
     private Vector3 offset;
-    public Vector3 defaulPos;
+    [HideInInspector]
+    public Vector3 defaultPos;
 
     public float maxDist;
     public float shootPower;
@@ -21,10 +22,9 @@ public class Dragpoint : MonoBehaviour {
     Slingshot SS;
 
     void Start() {
+        defaultPos = transform.position;
         canShoot = true;
         SS = GameObject.Find("Slingshot").GetComponent<Slingshot>();
-        defaulPos = new Vector3(0, 1.3f, 0);
-        transform.position = defaulPos;
     }
 
     void OnMouseDown() {
@@ -38,9 +38,9 @@ public class Dragpoint : MonoBehaviour {
             Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
             currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + offset;
 
-            var allowedPos = currentPosition - defaulPos;
+            var allowedPos = currentPosition - defaultPos;
             allowedPos = Vector3.ClampMagnitude(allowedPos, maxDist);
-            transform.position = defaulPos + allowedPos;
+            transform.position = defaultPos + allowedPos;
 
             /*if (Input.mousePosition.y >= -100 && Input.mousePosition.y <= 100) {
                 Debug.Log("x");

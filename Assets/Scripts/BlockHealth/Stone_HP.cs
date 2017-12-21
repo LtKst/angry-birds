@@ -6,18 +6,20 @@ public class Stone_HP : MonoBehaviour {
 
     public int state;
 
-    int timer = 100;
+    int timer = 50;
 
     public Sprite normal;
     public Sprite littledmg;
     public Sprite middmg;
     public Sprite heavydmg;
-    public Sprite broken;
+    
+    private GameObject bird;
 
     SpriteRenderer sp;
 
 	// Use this for initialization
 	void Start () {
+        bird = GameObject.FindGameObjectWithTag("Bird");
         sp = GetComponent<SpriteRenderer>();
     }
 
@@ -26,7 +28,10 @@ public class Stone_HP : MonoBehaviour {
         if(collision.gameObject.tag == "Bird" && timer == 0)
         {
             state += 2;
-            UI.score += 50000;
+            int amount = 300 + (int)Mathf.Round(bird.GetComponent<Rigidbody2D>().velocity.magnitude) * 200;
+            ScoreController.screenPos = gameObject.transform.position;
+            ScoreController.CreateText(amount.ToString(), transform);
+            UI.score += amount;
         }
     }
 
@@ -63,7 +68,10 @@ public class Stone_HP : MonoBehaviour {
             if (state >= 4)
             {
                 //broken
-                sp.sprite = broken;
+                UI.score += 500;
+                ScoreController.screenPos = gameObject.transform.position;
+                ScoreController.CreateText("500", transform);
+                ObjectPoolManager.instance.SpawnPoolObject("StoneBreakParticles", transform.position);
                 Destroy(gameObject);
             }
         }

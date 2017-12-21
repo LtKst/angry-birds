@@ -11,12 +11,21 @@ public class Bird : MonoBehaviour {
     [SerializeField]
     private float impactDamage = 2;
 
+    [HideInInspector]
+    public bool shot = false;
+
+    [SerializeField]
+    private ParticleSystem collisionPS;
+
     private void Awake() {
         trail = GetComponent<Trail>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        OnImpact();
+        if (shot) {
+            collisionPS.Emit(10);
+            OnImpact();
+        }
     }
 
     public virtual void OnImpact() {

@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Made by Koen Sparreboom
+/// </summary>
 public class CameraPan : MonoBehaviour {
 
     private Camera _camera;
@@ -15,7 +18,12 @@ public class CameraPan : MonoBehaviour {
     [SerializeField]
     private float inActionSize;
 
-    private bool inAction;
+    [SerializeField]
+    private float minX;
+    [SerializeField]
+    private float maxX;
+
+    public bool inAction;
 
     private void Awake() {
         _camera = GetComponent<Camera>();
@@ -25,10 +33,6 @@ public class CameraPan : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetKeyDown("e")) {
-            inAction = !inAction;
-        }
-
         float speed = panSpeed * Time.deltaTime;
 
         _camera.transform.position = inAction ? Vector3.Lerp(_camera.transform.position, inActionPosition, speed) : Vector3.Lerp(_camera.transform.position, initialPosition, speed);
