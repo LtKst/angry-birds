@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1700311969456736}
   m_IsPrefabParent: 1
+--- !u!1 &1233510225202092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4385035064290836}
+  - component: {fileID: 114884952695421186}
+  m_Layer: 0
+  m_Name: Pause
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1692682587723952
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,8 +99,22 @@ Transform:
   m_Children:
   - {fileID: 4727058176387848}
   - {fileID: 4056144945294562}
+  - {fileID: 4385035064290836}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4385035064290836
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233510225202092}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4073847383170400}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4727058176387848
 Transform:
@@ -119,6 +149,22 @@ MonoBehaviour:
     poolObject: {fileID: 1660776064528520, guid: 3840d51230289464f9c71d87e1e1e990,
       type: 2}
     initialPoolSize: 100
+  - poolName: WoodBreakParticles
+    poolObject: {fileID: 1005086007563010, guid: 72b9abcb81f989c4da725f7918d5bbb5,
+      type: 2}
+    initialPoolSize: 100
+  - poolName: StoneBreakParticles
+    poolObject: {fileID: 1329669311355620, guid: 1b0c421c6f2cc74469148828e5917849,
+      type: 2}
+    initialPoolSize: 100
+  - poolName: Poof
+    poolObject: {fileID: 1046933076487240, guid: 5092408366d05444ba3491e3012a7312,
+      type: 2}
+    initialPoolSize: 5
+  - poolName: SinglePoof
+    poolObject: {fileID: 1428704851885316, guid: a049fad394b13844da5e375c435564ca,
+      type: 2}
+    initialPoolSize: 5
 --- !u!114 &114570467456759148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,3 +177,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailList: []
+--- !u!114 &114884952695421186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233510225202092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65b18b5d3f263c47a6f101416a346ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pausePanel: {fileID: 0}
+  imageFade: {fileID: 0}
