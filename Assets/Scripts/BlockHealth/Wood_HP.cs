@@ -13,6 +13,9 @@ public class Wood_HP : MonoBehaviour {
     public Sprite middmg;
     public Sprite heavydmg;
 
+    public AudioSource woodDamage;
+    public AudioSource woodDestroy;
+    
     private GameObject bird;
 
     SpriteRenderer sp;
@@ -22,6 +25,9 @@ public class Wood_HP : MonoBehaviour {
     {
         sp = GetComponent<SpriteRenderer>();
         bird = GameObject.FindGameObjectWithTag("Bird");
+
+        woodDamage = GameObject.Find("woodDamage").GetComponent<AudioSource>();
+        woodDestroy = GameObject.Find("woodDestroy").GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -29,8 +35,9 @@ public class Wood_HP : MonoBehaviour {
         if (collision.gameObject.tag == "Bird" && timer == 0)
         {  
             state += 3;
-            int amount = 300 + (int)Mathf.Round(bird.GetComponent<Rigidbody2D>().velocity.magnitude) * 100;
-            ScoreController.screenPos = gameObject.transform.position;
+            woodDamage.Play(100);
+            int amount = 300 + (int)Mathf.Round((bird.GetComponent<Rigidbody2D>().velocity.magnitude * 100));
+            ScoreController.screenPos = new Vector3(gameObject.transform.position.x + Random.Range(-2, 2), gameObject.transform.position.y + Random.Range(5, 6));
             ScoreController.CreateText(amount.ToString(), transform);
             UI.score += amount;
         }
@@ -81,7 +88,8 @@ public class Wood_HP : MonoBehaviour {
             {
                 //broken
                 UI.score += 500;
-                ScoreController.screenPos = gameObject.transform.position;
+                woodDestroy.Play(100);
+                ScoreController.screenPos = new Vector3(gameObject.transform.position.x + Random.Range(-2, 2), gameObject.transform.position.y + Random.Range(5, 6));
                 ScoreController.CreateText("500", transform);
                 ObjectPoolManager.instance.SpawnPoolObject("WoodBreakParticles", transform.position);
                 Destroy(gameObject);
