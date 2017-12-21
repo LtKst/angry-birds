@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Made by: Gijs Schouten
+/// </summary>
+
 public class ScorePopup : MonoBehaviour {
     public Animator anim;
     private Text scoreText;
