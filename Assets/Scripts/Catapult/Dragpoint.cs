@@ -28,13 +28,13 @@ public class Dragpoint : MonoBehaviour {
     }
 
     void OnMouseDown() {
-        if (canShoot) {
+        if (canShoot && !Pause.Paused) {
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
                                                                                 Input.mousePosition.y, screenPoint.z));
         }
     }
     void OnMouseDrag() {
-        if (canShoot) {
+        if (canShoot && !Pause.Paused) {
             Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
             currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + offset;
 
@@ -52,7 +52,7 @@ public class Dragpoint : MonoBehaviour {
     }
 
     void OnMouseUp() {
-        if (canShoot) {
+        if (canShoot && !Pause.Paused) {
             SS.Shoot(shootPower);
             canShoot = false;
         }

@@ -3,7 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour {
 
-    private bool paused;
+    private static bool paused;
+    public static bool Paused {
+        get {
+            return paused;
+        }
+    }
 
     [SerializeField]
     private PanelUI pausePanel;
