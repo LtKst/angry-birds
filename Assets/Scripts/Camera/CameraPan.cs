@@ -25,7 +25,7 @@ public class CameraPan : MonoBehaviour {
     [SerializeField]
     private Transform birdToFollow;
 
-    public bool inAction;
+    public bool followingBird;
 
     private void Awake() {
         _camera = GetComponent<Camera>();
@@ -34,7 +34,7 @@ public class CameraPan : MonoBehaviour {
     }
 
     private void Update() {
-        if (inAction && birdToFollow != null && transform.position.x > minX && transform.position.x < maxX) {
+        if (followingBird && birdToFollow != null && transform.position.x > minX && transform.position.x < maxX) {
             transform.position = Vector3.Lerp(transform.position, new Vector3(birdToFollow.position.x + xOffset, transform.position.y, -10), panSpeed * Time.deltaTime);
             _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, inActionSize, panSpeed/2 * Time.deltaTime);
         }
