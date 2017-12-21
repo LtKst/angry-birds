@@ -41,10 +41,5 @@ public class CameraPan : MonoBehaviour {
         if (inAction && birdToFollow != null && transform.position.x > minX && transform.position.x < maxX) {
             transform.position = Vector3.Lerp(transform.position, new Vector3(birdToFollow.position.x + xOffset, transform.position.y, -10), panSpeed * Time.deltaTime);
         }
-
-        /*float speed = panSpeed * Time.deltaTime;
-
-        _camera.transform.position = inAction ? Vector3.Lerp(_camera.transform.position, inActionPosition, speed) : Vector3.Lerp(_camera.transform.position, initialPosition, speed);
-        _camera.orthographicSize = inAction ? Mathf.Lerp(_camera.orthographicSize, inActionSize, speed) : Mathf.Lerp(_camera.orthographicSize, initialSize, speed);*/
     }
 }
