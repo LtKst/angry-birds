@@ -7462,6 +7462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1461168717}
   - component: {fileID: 1461168718}
+  - component: {fileID: 1461168719}
   m_Layer: 0
   m_Name: rockDestroy
   m_TagString: Untagged
@@ -7562,6 +7563,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!170 &1461168719
+AudioDistortionFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1461168716}
+  m_Enabled: 1
+  m_DistortionLevel: 1
 --- !u!1 &1469742346
 GameObject:
   m_ObjectHideFlags: 0
@@ -9294,6 +9303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2027006291}
   - component: {fileID: 2027006292}
+  - component: {fileID: 2027006293}
   m_Layer: 0
   m_Name: rockDamage
   m_TagString: Untagged
@@ -9394,6 +9404,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!170 &2027006293
+AudioDistortionFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2027006290}
+  m_Enabled: 1
+  m_DistortionLevel: 1
 --- !u!1 &2032925807
 GameObject:
   m_ObjectHideFlags: 0
