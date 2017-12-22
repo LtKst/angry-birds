@@ -17,6 +17,11 @@ This is a small segment of Angry Birds remade in <a href="https://unity3d.com/" 
   * Yaro Copijn
   * Denny van Druten
   * Oliver van der Wal
+  
+  
+## Preview
+
+<img src="https://i.imgur.com/X9L4Ur2.gif"/>
 
 ---
 
