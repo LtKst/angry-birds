@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyHealth : MonoBehaviour {
+public class EnemyHealth : MonoBehaviour {
 
     public int state;
 
@@ -27,17 +27,17 @@ public class enemyHealth : MonoBehaviour {
         if (collision.gameObject.tag == "Bird" && timer == 0)
         {
             state += 2;
-            UI.score += 5000;
+            ScoreUI.score += 5000;
         }
         if (collision.gameObject.tag == "Block" && timer == 0)
         {
             state += 1;
-            UI.score += 1000;
+            ScoreUI.score += 1000;
         }
         if(collision.gameObject.tag == "Ground" && timer == 0)
         {
             state += 1;
-            UI.score += 500;
+            ScoreUI.score += 500;
         }
     }
 
@@ -65,10 +65,10 @@ public class enemyHealth : MonoBehaviour {
             if (state >= 2)
             {
                 //broken
-                UI.score += 5000;
-                pigDestroy.Play(100);
+                ScoreUI.score += 5000;
+                pigDestroy.Play();
                 ScoreController.screenPos = new Vector3(gameObject.transform.position.x + Random.Range(-2, 2), gameObject.transform.position.y + Random.Range(5, 6));
-                ScoreController.CreateText("5000", transform);
+                ScoreController.CreateText("5000", transform, new Color(59f / 255f, 174f / 255f, 13f / 255f), new Color(40f / 255f, 114f / 255f, 10f / 255f));
                 ObjectPoolManager.instance.SpawnPoolObject("Poof", transform.position);
                 Destroy(gameObject);
             }

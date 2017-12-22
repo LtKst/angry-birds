@@ -35,21 +35,21 @@ public class Wood_HP : MonoBehaviour {
         if (collision.gameObject.tag == "Bird" && timer == 0)
         {  
             state += 3;
-            woodDamage.Play(100);
+            woodDamage.Play();
             int amount = 300 + (int)Mathf.Round((bird.GetComponent<Rigidbody2D>().velocity.magnitude * 100));
             ScoreController.screenPos = new Vector3(gameObject.transform.position.x + Random.Range(-2, 2), gameObject.transform.position.y + Random.Range(5, 6));
-            ScoreController.CreateText(amount.ToString(), transform);
-            UI.score += amount;
+            ScoreController.CreateText(amount.ToString(), transform, new Color(1, 1, 1), new Color(219f / 255, 159f / 255, 29f / 255));
+            ScoreUI.score += amount;
         }
         if (collision.gameObject.tag == "Ground" && timer == 0)
         {
             state += 1;
-            UI.score += 200;
+            ScoreUI.score += 200;
         }
         if (collision.gameObject.tag == "Block" && timer == 0)
         {
             state += 1;
-            UI.score += 100;
+            ScoreUI.score += 100;
         }
     }
 
@@ -87,10 +87,10 @@ public class Wood_HP : MonoBehaviour {
             if (state >= 4)
             {
                 //broken
-                UI.score += 500;
-                woodDestroy.Play(100);
+                ScoreUI.score += 500;
+                woodDestroy.Play();
                 ScoreController.screenPos = new Vector3(gameObject.transform.position.x + Random.Range(-2, 2), gameObject.transform.position.y + Random.Range(5, 6));
-                ScoreController.CreateText("500", transform);
+                ScoreController.CreateText("500", transform, new Color(1, 1, 1), new Color(219f / 255, 159f / 255, 29f / 255));
                 ObjectPoolManager.instance.SpawnPoolObject("WoodBreakParticles", transform.position);
                 Destroy(gameObject);
                 
