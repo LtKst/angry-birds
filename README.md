@@ -4,7 +4,10 @@ This is a small segment of Angry Birds remade in <a href="https://unity3d.com/" 
 
 ## Play it here
 
-<a href="http://22084.hosts.ma-cloud.nl/bewijzenmap/p2.2/idp/angry-birds/">Web build</a>
+* <a href="https://github.com/LtKst/angry-birds/releases/download/v1.0/AngryBirdsWindows.zip">Windows</a>
+* <a href="https://github.com/LtKst/angry-birds/releases/download/v1.0/AngryBirdsMac.app.zip">Mac</a>
+* <a href="https://github.com/LtKst/angry-birds/releases/download/v1.0/AngryBirdsLinux.zip">Linux</a>
+* <a href="http://22084.hosts.ma-cloud.nl/bewijzenmap/p2.2/idp/angry-birds/">Web build</a>
 
 ## Credits
 
