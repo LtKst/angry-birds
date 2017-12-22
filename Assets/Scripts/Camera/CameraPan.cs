@@ -9,33 +9,34 @@ public class CameraPan : MonoBehaviour {
 
     [SerializeField]
     private float panSpeed;
-
-    private Vector3 initialPosition;
+    
     private float initialSize;
 
     [SerializeField]
-    private Vector3 inActionPosition;
-    [SerializeField]
     private float inActionSize;
 
+    [SerializeField]
+    private float xOffset = 5;
     [SerializeField]
     private float minX;
     [SerializeField]
     private float maxX;
 
-    public bool inAction;
+    [SerializeField]
+    private Transform birdToFollow;
+
+    public bool followingBird;
 
     private void Awake() {
         _camera = GetComponent<Camera>();
 
-        initialPosition = _camera.transform.position;
         initialSize = _camera.orthographicSize;
     }
 
     private void Update() {
-        float speed = panSpeed * Time.deltaTime;
-
-        _camera.transform.position = inAction ? Vector3.Lerp(_camera.transform.position, inActionPosition, speed) : Vector3.Lerp(_camera.transform.position, initialPosition, speed);
-        _camera.orthographicSize = inAction ? Mathf.Lerp(_camera.orthographicSize, inActionSize, speed) : Mathf.Lerp(_camera.orthographicSize, initialSize, speed);
+        if (followingBird && birdToFollow != null && transform.position.x > minX && transform.position.x < maxX) {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(birdToFollow.position.x + xOffset, transform.position.y, -10), panSpeed * Time.deltaTime);
+            _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, inActionSize, panSpeed/2 * Time.deltaTime);
+        }
     }
 }

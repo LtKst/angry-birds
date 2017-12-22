@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Made by: Gijs Schouten
+/// </summary>
+
 public class ScoreController : MonoBehaviour {
     private static ScorePopup popupText;
     private static GameObject canvas;
@@ -9,16 +13,16 @@ public class ScoreController : MonoBehaviour {
 
     public static void Initialize() {
         print("init");
-        canvas = GameObject.Find("Canvas");     
+        canvas = GameObject.Find("WorldCanvas");     
         popupText = Resources.Load<ScorePopup>("Prefabs/PopupParent");      
     }
     
-    public static void CreateText(string text, Transform location) {
+    public static void CreateText(string text, Transform location, Color fontColor, Color outlineColor) {
         ScorePopup instance = Instantiate(popupText);
-        //Vector2 screenPos = Camera.main.WorldToScreenPoint(new Vector2(location.position.x + Random.Range(-2, 2), location.position.y + Random.Range(2 , 4)));
 
         instance.transform.SetParent(canvas.transform, false);
         instance.transform.position = screenPos;
+        instance.SetColor(fontColor, outlineColor);
         instance.SetScore(text);
     }
 }

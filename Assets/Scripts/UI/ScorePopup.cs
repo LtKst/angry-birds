@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Made by: Gijs Schouten
+/// </summary>
+
 public class ScorePopup : MonoBehaviour {
     public Animator anim;
     private Text scoreText;
@@ -14,7 +18,11 @@ public class ScorePopup : MonoBehaviour {
     }
 
     public void SetScore(string score) {
-        scoreText.text = score;
+        scoreText.text = score;   
     }
-    
+
+    public void SetColor(Color fontColor, Color outlineColor) {
+        scoreText.color = fontColor;
+        scoreText.GetComponent<Outline>().effectColor = outlineColor;
+    }
 }
