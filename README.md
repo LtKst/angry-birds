@@ -4,7 +4,7 @@ This is a small segment of Angry Birds remade in <a href="https://unity3d.com/" 
 
 ## Play it here
 
-The download is not yet available!
+<a href="http://22084.hosts.ma-cloud.nl/bewijzenmap/p2.2/idp/angry-birds/">Web build</a>
 
 ## Credits
 
