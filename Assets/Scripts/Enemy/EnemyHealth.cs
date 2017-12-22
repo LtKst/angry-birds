@@ -68,7 +68,7 @@ public class EnemyHealth : MonoBehaviour {
                 ScoreUI.score += 5000;
                 pigDestroy.Play();
                 ScoreController.screenPos = new Vector3(gameObject.transform.position.x + Random.Range(-2, 2), gameObject.transform.position.y + Random.Range(5, 6));
-                ScoreController.CreateText("5000", transform);
+                ScoreController.CreateText("5000", transform, new Color(59f / 255f, 174f / 255f, 13f / 255f), new Color(40f / 255f, 114f / 255f, 10f / 255f));
                 ObjectPoolManager.instance.SpawnPoolObject("Poof", transform.position);
                 Destroy(gameObject);
             }
