@@ -12,14 +12,14 @@ This is a small segment of Angry Birds remade in <a href="https://unity3d.com/" 
 ## Credits
 
 * Programmers
-  *	Gijs Schouten
-  * Koen Sparreboom
-  * Jarno Limmen
+  *	<a href="https://github.com/Solemnity/Angrybirds_myScripts">Gijs Schouten</a>
+  * <a href="https://github.com/LtKst">Koen Sparreboom</a>
+  * <a href="https://github.com/Yaruno292">Jarno Limmen</a>
 
 * Artists
-  * Yaro Copijn
-  * Denny van Druten
-  * Oliver van der Wal
+  * <a href="https://github.com/YaroCopijn">Yaro Copijn</a>
+  * <a href="https://github.com/DennyVanDruten17">Denny van Druten</a>
+  * <a href="https://github.com/NicollevanderWal">Oliver van der Wal</a>
   
   
 ## Preview
